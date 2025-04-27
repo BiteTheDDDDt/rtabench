@@ -8,6 +8,7 @@ FROM
 WHERE
     o.created_at >= '2024-01-01' and o.created_at < '2024-07-01'
 GROUP BY
+    c.name,
     c.customer_id
 ORDER BY
     count(o.order_id) DESC, c.name

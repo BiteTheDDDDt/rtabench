@@ -1,7 +1,7 @@
 WITH hourly_stats AS (
   SELECT 
     DATE_FORMAT(event_created, '%Y-%m-%d %H:00:00') as hour,
-    JSON_UNQUOTE(JSON_EXTRACT(event_payload, '$.terminal')) as terminal,
+    cast(event_payload['terminal'] AS TEXT) as terminal,
     count(*) as event_count
   FROM order_events
   WHERE 

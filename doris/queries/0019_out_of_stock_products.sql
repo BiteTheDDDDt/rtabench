@@ -16,5 +16,5 @@ WHERE
             oe.event_type = 'Shipped'
             AND oe.order_id = oi.order_id)
 GROUP BY
-    p.product_id
+    p.product_id, p.name, p.stock
 HAVING (sum(oi.amount) < p.stock);

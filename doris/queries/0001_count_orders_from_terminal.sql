@@ -6,7 +6,7 @@ FROM
 WHERE
     event_created >= '2024-04-01' and event_created < '2024-05-01'
     AND event_type = 'Departed'
-    AND event_payload->"$.terminal" = 'Berlin'
+    AND cast(event_payload['terminal'] AS TEXT) = 'Berlin'
 GROUP BY
     day
 ORDER BY count desc, day
