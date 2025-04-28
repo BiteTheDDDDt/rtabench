@@ -36,8 +36,8 @@ CREATE TABLE orders
     order_id     integer not null,
     customer_id integer not null,
     created_at datetime not null,
-) duplicate key (order_id)
-distributed BY hash(order_id) buckets 32
+) duplicate key (order_id, customer_id, created_at)
+distributed BY hash(order_id, customer_id, created_at) buckets 32
 properties("replication_num" = "1");
 
 CREATE TABLE order_items
