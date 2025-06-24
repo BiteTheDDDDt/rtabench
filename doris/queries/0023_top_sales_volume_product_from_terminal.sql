@@ -1,5 +1,5 @@
 SELECT
-    product_id,
+    p.product_id,
     p.name,
     sum(oi.amount * p.price)
 FROM

@@ -6,6 +6,4 @@ LOAD DATA LOCAL INFILE './dataset/orders.csv' INTO TABLE orders COLUMNS TERMINAT
 
 LOAD DATA LOCAL INFILE './dataset/order_items.csv' INTO TABLE order_items COLUMNS TERMINATED BY ','PROPERTIES ("enclose" = "\"","escape" = "\\" );
 
-sed 's/""/\\"/g' ./dataset/order_events.csv > ./dataset/order_events2.csv
-
 LOAD DATA LOCAL INFILE './dataset/order_events2.csv' INTO TABLE order_events COLUMNS TERMINATED BY ',' (order_id,counter,event_created,event_type,satisfaction,processor,backup_processor,event_payload) PROPERTIES ("enclose" = "\"", "escape" = "\\" , "trim_double_quotes"="true");

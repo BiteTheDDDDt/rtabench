@@ -1,4 +1,4 @@
-SELECT sum(oi.amount*p.price)/count(DISTINCT order_id)
+SELECT sum(oi.amount*p.price)/count(DISTINCT o.order_id)
 FROM orders o 
 INNER JOIN order_items oi USING (order_id)
 INNER JOIN products p USING (product_id)
